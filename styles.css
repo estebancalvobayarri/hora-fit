@@ -317,7 +317,9 @@ footer b{color:var(--ink)}
   }
 
   .final p {
-    margin: 0 auto 30px; /* Centra la caja del párrafo en móvil */
+    margin: 0 auto 30px;
+    text-align: center;
+    /* Centra la caja del párrafo en móvil */
   }
 
   footer .wrap {
