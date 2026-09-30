@@ -248,3 +248,65 @@ footer b{color:var(--ink)}
   html{scroll-behavior:auto}
   .btn,summary::after{transition:none}
 }
+/* ==========================================================================
+   RESPONSIVE DESIGN (Media Query para Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* 1. Ajuste del Logo y la Barra de Navegación */
+  .logo {
+    height: 32px; /* Reduce el tamaño del logo de 46px a 32px */
+  }
+  
+  .bar {
+    padding: 16px 0; /* Un poco más de espacio vertical en móvil */
+  }
+
+  /* 2. Ajustes del Bloque Hero (Principal) */
+  .hero {
+    padding: 24px 0 60px;
+  }
+  
+  /* Pasa los 4 datos (facts) de 4 columnas a 2 columnas */
+  .facts {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 0;
+  }
+
+  /* 3. Secciones Generales */
+  section {
+    padding: 56px 0; /* Reduce el espaciado exagerado entre secciones */
+  }
+
+  /* Pasa la sección "Por qué" de 3 columnas a 1 sola columna vertical */
+  .why {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* 4. Flujo de Clases (Steps) */
+  /* Cambia la estructura de filas horizontales a bloques apilados */
+  .steps li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+
+  /* 5. Tarjetas de Niveles y Circuitos */
+  /* Pasa los niveles de 3 columnas a 1 sola columna */
+  .levels {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
+
+  /* Pasa el circuito de 3 columnas a 1 sola columna */
+  .circuit {
+    grid-template-columns: 1fr;
+  }
+
+  /* 6. Sección de Precios */
+  /* Pasa la fila horizontal a dos bloques verticales (Texto arriba, Precio abajo) */
+  .price .wrap {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
