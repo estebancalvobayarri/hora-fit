@@ -313,18 +313,17 @@ footer b{color:var(--ink)}
   /* Centrar llamado a la acción (CTA) y Footer solo en móviles (pantallas menores a 768px) */
 @media (max-width: 768px) {
   .final {
-    text-align: center; /* Centra el título y el botón en móvil */
+    text-align: left; /* Centra el título y el botón en móvil */
   }
 
   .final p {
     margin: 0 auto 30px;
-    text-align: center;
     /* Centra la caja del párrafo en móvil */
   }
 
   footer .wrap {
     justify-content: center; /* Agrupa los elementos al centro en móvil */
-    text-align: center;      /* Asegura que los textos internos se centren */
+    text-align: left;      /* Asegura que los textos internos se centren */
     flex-direction: column;  /* Apila los elementos verticalmente si el espacio es muy estrecho */
     gap: 16px;               /* Añade un poco más de separación entre los elementos apilados */
   }
