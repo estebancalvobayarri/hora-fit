@@ -189,11 +189,11 @@ details[open] summary::after{transform:translateY(-52%) rotate(45deg)}
 details p{margin:0 0 24px;color:var(--muted);max-width:42em}
 
 /* final cta */
-.final{text-align:ceneter;padding-bottom:110px}
+.final{text-align:left;padding-bottom:110px}
 .final h2{font-size:clamp(44px,9vw,110px)}
-.final p{max-width:32em;font-size:19px;color:var(--muted);margin:0 auto 30px}
+.final p{max-width:32em;font-size:19px;color:var(--muted);margin:0 0 30px}
 footer{border-top:0px solid var(--ink);padding:26px 0 40px;font-size:15px;color:var(--muted); background:#e6e9eb}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;text-align:center;}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 footer b{color:var(--ink)}
 
 /* Contenedor de los tres bloques A4 */
@@ -309,4 +309,22 @@ footer b{color:var(--ink)}
     grid-template-columns: 1fr;
     gap: 36px;
   }
+  
+  /* Centrar llamado a la acción (CTA) y Footer solo en móviles (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .final {
+    text-align: center; /* Centra el título y el botón en móvil */
+  }
+
+  .final p {
+    margin: 0 auto 30px; /* Centra la caja del párrafo en móvil */
+  }
+
+  footer .wrap {
+    justify-content: center; /* Agrupa los elementos al centro en móvil */
+    text-align: center;      /* Asegura que los textos internos se centren */
+    flex-direction: column;  /* Apila los elementos verticalmente si el espacio es muy estrecho */
+    gap: 16px;               /* Añade un poco más de separación entre los elementos apilados */
+  }
 }
+
