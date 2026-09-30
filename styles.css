@@ -69,11 +69,6 @@ a{color:inherit}
 
 /* hero */
 .hero{position:relative;padding:36px 0 90px;isolation:isolate}
-.hero::before{
-  content:"m";position:absolute;right:-6vw;top:-60px;z-index:-1;
-  font-weight:900;font-size:min(90vw,760px);line-height:1;color:var(--grey-shape);
-  transform:rotate(-8deg);pointer-events:none;
-}
 .hero h1{
   margin:0;font-weight:900;letter-spacing:-.045em;line-height:.92;
   font-size:clamp(50px,11.5vw,132px);
