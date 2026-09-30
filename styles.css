@@ -148,7 +148,7 @@ h2 .c{color:var(--cyan)}
 .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:56px}
 .lvl{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:26px 24px 28px}
 .lvl .n{font-size:15px;font-weight:800;color:var(--muted)}
-.lvl .big{font-size:54px;font-weight:700;letter-spacing:-.05em;line-height:1;margin:6px 0 0}
+.lvl .big{font-size:42px;font-weight:500;letter-spacing:-.5em;line-height:1;margin:6px 0 0}
 .lvl:nth-child(1) .big{color:var(--cyan)}
 .lvl:nth-child(2) .big{color:var(--teal)}
 .lvl:nth-child(3) .big{color:var(--orange)}
