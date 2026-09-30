@@ -56,6 +56,18 @@ a{color:inherit}
 .brand i{display:inline-block;width:16px;height:16px;background:var(--cyan);margin:0 3px 0 4px;transform:rotate(45deg) scale(.8);border-radius:3px;vertical-align:-1px}
 .bar a.pill{font-size:15px}
 
+/* logos */
+.brand{display:inline-flex;align-items:center}
+.logo{display:block;height:46px;width:auto;mix-blend-mode:multiply}
+.foot-brand{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--ink)}
+.logo-sm{display:block;height:34px;width:auto;mix-blend-mode:multiply}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .logo,
+  :root:not([data-theme="light"]) .logo-sm{mix-blend-mode:normal;background:#fff;border-radius:8px;padding:3px 6px}
+}
+:root[data-theme="dark"] .logo,
+:root[data-theme="dark"] .logo-sm{mix-blend-mode:normal;background:#fff;border-radius:8px;padding:3px 6px}
+
 /* buttons */
 .btn{
   display:inline-block;background:var(--cyan);color:var(--on-cyan);font-weight:800;font-size:17px;
