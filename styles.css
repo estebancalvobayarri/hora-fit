@@ -172,7 +172,7 @@ h2 .d{color:var(--bg)}
 .price h2{color:var(--on-cyan)}
 .price .amount{font-weight:900;letter-spacing:-.06em;line-height:.85;font-size:clamp(110px,22vw,230px);color:#000}
 .price .amount sup{font-size:.36em;vertical-align:top;letter-spacing:0;margin-left:4px;position:relative;top:.15em}
-.price .per{font-weight:800;font-size:22px;margin:6px 0 0}
+.price .per{font-weight:800;font-size:22px;margin:6px 0 0;color:#fff}
 .price ul{list-style:none;padding:0;margin:0 0 30px;display:grid;gap:12px}
 .price li{font-weight:600;padding-left:32px;position:relative;font-size:18px}
 .price li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;background:#000;border-radius:4px;transform:rotate(45deg) scale(.85)}
