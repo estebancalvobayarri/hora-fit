@@ -30,7 +30,7 @@
   <div class="wrap">
     <div class="bar">
       <a class="brand" href="#top" aria-label="HoraFit, inicio"><img class="logo" src="images/HoraFit.png" alt="HoraFit"></a>
-     <a class="pill" href="aviso.html" id="btn-apuntate">Reservar plaza</a>
+     <a class="pill" href="aviso.html" data-track="Clic en Reservar plaza (cabecera)">Reservar plaza</a>
     </div>
   </div>
 </header>
@@ -138,8 +138,7 @@
           <li>Circuitos para todos los niveles</li>
           <li>Estiramientos guiados al final</li>
         </ul>
-       <a class="pill" href="aviso.html" id="btn-apuntate">Reservar mi plaza</a> 
-       <!-- <a class="btn" href="aviso.html">Reservar mi plaza</a> -->
+       <a class="btn" href="aviso.html" data-track="Clic en Reservar mi plaza (precio)">Reservar mi plaza</a>
       </div>
     </div>
   </section>
@@ -195,23 +194,28 @@
 <script>
     const URL_GOOGLE_SCRIPT = "https://script.google.com/macros/s/AKfycby-YPIvV1gjPEvxCAwQiYgXVRnTk8t5y-qBRHEYDeFAz7sKVI6HXMQReq3jLCYD7Cay/exec"; 
 
-    document.getElementById('btn-apuntate').addEventListener('click', function() {
-        const datosEnviar = {
-            accion: "Clic en botón Apúntate"
-        };
+    // Registra el clic de cualquier enlace con atributo data-track
+    document.querySelectorAll('[data-track]').forEach(function(el) {
+        el.addEventListener('click', function() {
+            const datosEnviar = {
+                accion: el.getAttribute('data-track')
+            };
 
-        fetch(URL_GOOGLE_SCRIPT, {
-            method: "POST",
-            mode: "no-cors", 
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(datosEnviar)
-        })
-        .then(() => {
-            console.log("Registro enviado correctamente.");
-        })
-        .catch(error => console.error("Error al registrar:", error));
+            // keepalive permite que la petición termine aunque la página cambie a aviso.html
+            fetch(URL_GOOGLE_SCRIPT, {
+                method: "POST",
+                mode: "no-cors",
+                keepalive: true,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datosEnviar)
+            })
+            .then(() => {
+                console.log("Registro enviado correctamente.");
+            })
+            .catch(error => console.error("Error al registrar:", error));
+        });
     });
 </script>
 
