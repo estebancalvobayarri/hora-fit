@@ -91,7 +91,7 @@ a{color:inherit}
 .btn:hover{background:var(--teal);color:#fff;transform:translateY(-2px)}
 .btn.ghost{background:transparent;border:2px solid var(--ink);color:var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:var(--bg)}
-.pill{display:inline-block;background:var(-gris);color:var(--bg);padding:9px 20px;border-radius:999px;text-decoration:none;font-weight:600}
+.pill{display:inline-block;background:var(--gris);color:var(--bg);padding:9px 20px;border-radius:999px;text-decoration:none;font-weight:600}
 
 /* hero */
 .hero{position:relative;padding:36px 0 90px;isolation:isolate}
