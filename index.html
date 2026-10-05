@@ -30,7 +30,8 @@
   <div class="wrap">
     <div class="bar">
       <a class="brand" href="#top" aria-label="HoraFit, inicio"><img class="logo" src="images/HoraFit.png" alt="HoraFit"></a>
-      <a class="pill" href="#apuntate">Apúntate</a>
+      <!-- Le añadimos el id aquí al final: -->
+      <a class="pill" href="#apuntate" id="btn-apuntate">Apúntate</a>
     </div>
   </div>
 </header>
@@ -190,5 +191,35 @@
   </div>
 </footer>
 
+    <script>
+        // REEMPLAZA ESTO con tu URL exacta que termina en /exec
+        const URL_GOOGLE_SCRIPT = "Thttps://script.google.com/macros/s/AKfycby-YPIvV1gjPEvxCAwQiYgXVRnTk8t5y-qBRHEYDeFAz7sKVI6HXMQReq3jLCYD7Cay/exec";
+
+        // Buscamos el botón "Apúntate" mediante su id
+        document.getElementById('btn-apuntate').addEventListener('click', function() {
+            const datosEnviar = {
+                accion: "Clic en botón Apúntate"
+            };
+
+            // Envía el evento a tu Google Sheets de forma silenciosa
+            fetch(URL_GOOGLE_SCRIPT, {
+                method: "POST",
+                mode: "no-cors", 
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(datosEnviar)
+            })
+            .then(() => {
+                console.log("Registro enviado correctamente.");
+            })
+            .catch(error => console.error("Error al registrar:", error));
+        });
+    </script>
+
+</body>
+</html>
+
+ 
 </body>
 </html>
