@@ -175,8 +175,8 @@ h2 .c{color:var(--cyan)}
 .price ul{list-style:none;padding:0;margin:0 0 30px;display:grid;gap:12px}
 .price li{font-weight:600;padding-left:32px;position:relative;font-size:18px}
 .price li::before{content:"";position:absolute;left:0;top:.42em;width:16px;height:16px;background:#000;border-radius:4px;transform:rotate(45deg) scale(.85)}
-.price .btn{background:#000;color:#fff}
-.price .btn:hover{background:#fff;color:#000}
+.price .btn{background:var(--orange);color:#1a1203}
+.price .btn:hover{background:var(--orange);color:#1a1203}
 
 /* faq */
 details{border-bottom:2px solid var(--line);padding:0}
