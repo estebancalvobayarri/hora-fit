@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HoraFit · Te avisamos cuando lleguemos a tu colegio</title>
+<meta name="description" content="Estamos trabajando para ofrecer HoraFit en tu colegio. Déjanos tu contacto y te avisamos cuando empecemos a entrenar.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400;1,500&family=Caveat+Brush&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  /* Estilos propios de esta página (el styles.css original no se toca) */
+  .aviso{padding:56px 0 90px}
+  .aviso h1{
+    margin:0 0 18px;font-weight:900;letter-spacing:-.045em;line-height:.95;
+    font-size:clamp(42px,9vw,96px);
+  }
+  .aviso h1 .c{color:var(--cyan)}
+  .aviso .tag{
+    font-family:"Caveat Brush","Montserrat",cursive;font-size:clamp(26px,4vw,40px);
+    color:var(--orange-text);margin:0 0 18px;transform:rotate(-2deg);display:inline-block;
+  }
+  .aviso .msg{max-width:36em;font-size:clamp(18px,2.2vw,21px);margin:0 0 40px}
+
+  .form-card{
+    background:var(--card);border:2px solid var(--line);border-radius:22px;
+    padding:32px 28px 34px;max-width:560px;
+  }
+  .field{margin-bottom:22px}
+  .field label{display:block;font-weight:800;font-size:16px;margin-bottom:8px}
+  .field label small{font-weight:600;color:var(--muted)}
+  .field input{
+    width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);
+    border:2px solid var(--line);border-radius:14px;padding:14px 16px;
+  }
+  .field input:focus{outline:3px solid var(--orange);outline-offset:2px;border-color:var(--cyan)}
+  .hint{font-size:14px;color:var(--muted);margin:-6px 0 22px;font-weight:600}
+  .form-card .btn{width:100%;text-align:center;font-family:inherit}
+  .form-card .btn[disabled]{opacity:.6;cursor:wait;transform:none}
+  .error{color:#c0392b;font-weight:700;font-size:15px;margin:0 0 18px;display:none}
+  .error.show{display:block}
+  .legal{font-size:13px;color:var(--muted);margin:16px 0 0}
+
+  .gracias{display:none;max-width:560px}
+  .gracias.show{display:block}
+  .gracias h2{font-size:clamp(34px,6vw,60px)}
+  .gracias p{font-size:19px;color:var(--muted);margin:0 0 28px}
+  .hide{display:none}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="HoraFit, inicio"><img class="logo" src="images/HoraFit.png" alt="HoraFit"></a>
+      <a class="pill" href="index.html">Volver</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="aviso">
+    <div class="wrap">
+
+      <div id="bloque-form">
+        <h1>Muchas gracias<br><span class="c">por tu interés.</span></h1>
+        <p class="tag">pronto en tu cole</p>
+        <p class="msg">Estamos trabajando para poder ofrecer <strong>HoraFit en tu colegio</strong>. Si quieres que te avisemos cuando empecemos a entrenar, déjanos una vía de contacto.</p>
+
+        <form class="form-card" id="form-aviso" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email <small>(opcional si pones teléfono)</small></label>
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email">
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono <small>(opcional si pones email)</small></label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel">
+          </div>
+
+          <p class="hint">Rellena al menos uno: email o teléfono.</p>
+          <p class="error" id="error" role="alert"></p>
+
+          <button class="btn" type="submit" id="btn-guardar">Guardar mis datos</button>
+          <p class="legal">Solo usaremos tus datos para avisarte cuando HoraFit llegue a tu colegio.</p>
+        </form>
+      </div>
+
+      <div class="gracias" id="gracias" role="status" aria-live="polite">
+        <h2>¡Hecho! <span class="c">Te avisamos.</span></h2>
+        <p>Hemos guardado tus datos. En cuanto empecemos a entrenar en tu colegio, contactaremos contigo.</p>
+        <a class="btn" href="index.html">Volver al inicio</a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-brand"><img class="logo-sm" src="images/HF.jpeg" alt="HF"><span>Disfruta tu hora de fitness</span></span>
+    <span>© HoraFit 2026</span>
+  </div>
+</footer>
+
+<script>
+  // Misma URL de Apps Script que usa la página principal
+  const URL_GOOGLE_SCRIPT = "https://script.google.com/macros/s/AKfycby-YPIvV1gjPEvxCAwQiYgXVRnTk8t5y-qBRHEYDeFAz7sKVI6HXMQReq3jLCYD7Cay/exec";
+
+  const form = document.getElementById('form-aviso');
+  const errorEl = document.getElementById('error');
+  const btn = document.getElementById('btn-guardar');
+
+  function mostrarError(texto){
+    errorEl.textContent = texto;
+    errorEl.classList.add('show');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errorEl.classList.remove('show');
+
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const telefono = form.telefono.value.trim();
+
+    if (!nombre){
+      mostrarError('Por favor, escribe tu nombre.');
+      form.nombre.focus();
+      return;
+    }
+    if (!email && !telefono){
+      mostrarError('Déjanos al menos un email o un teléfono para poder avisarte.');
+      form.email.focus();
+      return;
+    }
+    if (email && !form.email.checkValidity()){
+      mostrarError('El email no parece correcto. Revísalo, por favor.');
+      form.email.focus();
+      return;
+    }
+    if (telefono && telefono.replace(/\D/g,'').length < 9){
+      mostrarError('El teléfono no parece correcto. Revísalo, por favor.');
+      form.telefono.focus();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Guardando...';
+
+    const datos = {
+      accion: "Aviso colegio",
+      nombre: nombre,
+      email: email,
+      telefono: telefono
+    };
+
+    fetch(URL_GOOGLE_SCRIPT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos)
+    })
+    .then(function(){
+      document.getElementById('bloque-form').classList.add('hide');
+      document.getElementById('gracias').classList.add('show');
+      window.scrollTo({top:0, behavior:'smooth'});
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'Guardar mis datos';
+      mostrarError('No hemos podido guardar tus datos. Inténtalo de nuevo en unos minutos.');
+    });
+  });
+</script>
+
+</body>
+</html>
