@@ -198,7 +198,7 @@ details p{margin:0 0 24px;color:var(--muted);max-width:42em}
 .final p{max-width:32em;font-size:19px;color:var(--muted);margin:0 0 30px}
 
 footer{border-top:0px solid var(--ink);padding:26px 0 40px;font-size:15px;color:var(--muted);}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
 footer b{color:var(--ink)}
 
 /* Contenedor de los tres bloques A4 */
