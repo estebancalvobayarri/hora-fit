@@ -334,3 +334,9 @@ footer b{color:var(--ink)}
   }
 }
 
+}
+
+
+/* enlace legal del footer */
+.foot-legal{color:var(--muted);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.foot-legal:hover{color:var(--ink)}
