@@ -41,6 +41,11 @@
     width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);
     border:2px solid var(--line);border-radius:14px;padding:14px 16px;
   }
+  .field textarea{
+    width:100%;font:inherit;font-size:17px;color:var(--ink);background:var(--bg);
+    border:2px solid var(--line);border-radius:14px;padding:14px 16px;resize:vertical;
+  }
+  .field textarea:focus,
   .field input:focus{outline:3px solid var(--orange);outline-offset:2px;border-color:var(--cyan)}
   .hint{font-size:14px;color:var(--muted);margin:-6px 0 22px;font-weight:600}
   .form-card .btn{width:100%;text-align:center;font-family:inherit}
@@ -82,6 +87,11 @@
           </div>
 
           <div class="field">
+            <label for="colegio">Nombre del colegio</label>
+            <input type="text" id="colegio" name="colegio" autocomplete="organization" required>
+          </div>
+
+          <div class="field">
             <label for="email">Email <small>(opcional si pones teléfono)</small></label>
             <input type="email" id="email" name="email" autocomplete="email" inputmode="email">
           </div>
@@ -92,6 +102,11 @@
           </div>
 
           <p class="hint">Rellena al menos uno: email o teléfono.</p>
+
+          <div class="field">
+            <label for="comentario">Comentario <small>(opcional)</small></label>
+            <textarea id="comentario" name="comentario" rows="4" maxlength="500"></textarea>
+          </div>
           <p class="error" id="error" role="alert"></p>
 
           <button class="btn" type="submit" id="btn-guardar">Guardar mis datos</button>
@@ -136,10 +151,17 @@
     const nombre = form.nombre.value.trim();
     const email = form.email.value.trim();
     const telefono = form.telefono.value.trim();
+    const colegio = form.colegio.value.trim();
+    const comentario = form.comentario.value.trim();
 
     if (!nombre){
       mostrarError('Por favor, escribe tu nombre.');
       form.nombre.focus();
+      return;
+    }
+    if (!colegio){
+      mostrarError('Por favor, escribe el nombre del colegio.');
+      form.colegio.focus();
       return;
     }
     if (!email && !telefono){
@@ -164,8 +186,10 @@
     const datos = {
       accion: "Aviso colegio",
       nombre: nombre,
+      colegio: colegio,
       email: email,
-      telefono: telefono
+      telefono: telefono,
+      comentario: comentario
     };
 
     fetch(URL_GOOGLE_SCRIPT, {
